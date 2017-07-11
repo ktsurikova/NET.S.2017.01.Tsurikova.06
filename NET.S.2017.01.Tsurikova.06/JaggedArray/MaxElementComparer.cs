@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JaggedArray
 {
-    class MaxElementComparer : IComparer<int[]>
+    public class MaxElementComparer : IComparer<int[]>
     {
         public int Compare(int[] x, int[] y)
         {
