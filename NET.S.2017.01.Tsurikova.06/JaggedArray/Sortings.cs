@@ -45,7 +45,7 @@ namespace JaggedArray
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 if (ReferenceEquals(array[i], null))
-                    throw new ArgumentNullException($"{nameof(array)}[i] is null");
+                    throw new ArgumentNullException($"{nameof(array)}[{i}] is null");
             }
         }
 
