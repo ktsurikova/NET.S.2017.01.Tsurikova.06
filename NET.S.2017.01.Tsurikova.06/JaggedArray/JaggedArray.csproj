@@ -40,11 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MaxElementComparer.cs" />
-    <Compile Include="MinElementComparer.cs" />
+    <Compile Include="IComparer.cs" />
     <Compile Include="Sortings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SumComparer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

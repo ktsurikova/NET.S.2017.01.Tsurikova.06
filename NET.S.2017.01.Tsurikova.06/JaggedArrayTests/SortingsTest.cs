@@ -37,7 +37,7 @@ namespace JaggedArrayTests
         [Test, TestCaseSource(nameof(TestDataForSum))]
         public void Sort_Array_Sum_Asc_SortedArray(int[][] array, int[][] sorted)
         {
-            Sortings.Sort(array, Sorting.Sum);
+            Sortings.Sort(array, new SumInComparer());
             IStructuralEquatable sq = array;
             Assert.True(sq.Equals(sorted, StructuralComparisons.StructuralEqualityComparer));
         }
@@ -45,7 +45,7 @@ namespace JaggedArrayTests
         [Test, TestCaseSource(nameof(TestDataForSum))]
         public void Sort_Array_Sum_Desc_SortedArray(int[][] array, int[][] sorted)
         {
-            Sortings.Sort(array, Sorting.Sum, false);
+            Sortings.Sort(array, new SumDecComparer());
             IStructuralEquatable sq = array;
             Array.Reverse(sorted);
             Assert.True(sq.Equals(sorted, StructuralComparisons.StructuralEqualityComparer));
@@ -79,7 +79,7 @@ namespace JaggedArrayTests
         [Test, TestCaseSource(nameof(TestDataForMin))]
         public void Sort_Array_Min_Asc_SortedArray(int[][] array, int[][] sorted)
         {
-            Sortings.Sort(array, Sorting.MinElement);
+            Sortings.Sort(array, new MinInComparer());
             IStructuralEquatable sq = array;
             Assert.True(sq.Equals(sorted, StructuralComparisons.StructuralEqualityComparer));
         }
@@ -87,7 +87,7 @@ namespace JaggedArrayTests
         [Test, TestCaseSource(nameof(TestDataForMin))]
         public void Sort_Array_Min_Desc_SortedArray(int[][] array, int[][] sorted)
         {
-            Sortings.Sort(array, Sorting.MinElement, false);
+            Sortings.Sort(array, new MinDecComparer());
             IStructuralEquatable sq = array;
             Array.Reverse(sorted);
             Assert.True(sq.Equals(sorted, StructuralComparisons.StructuralEqualityComparer));
@@ -113,7 +113,7 @@ namespace JaggedArrayTests
                     new[] {3, 2, 3},
                     new[] {4, 4, 4, 4},
                     new[] {4,3,5},
-                    new[] {6, 1, 5, 5, 5}    
+                    new[] {6, 1, 5, 5, 5}
                 });
             }
         }
@@ -121,7 +121,7 @@ namespace JaggedArrayTests
         [Test, TestCaseSource(nameof(TestDataForMax))]
         public void Sort_Array_Max_Asc_SortedArray(int[][] array, int[][] sorted)
         {
-            Sortings.Sort(array, Sorting.MaxElement);
+            Sortings.Sort(array, new MaxInComparer()); ;
             IStructuralEquatable sq = array;
             Assert.True(sq.Equals(sorted, StructuralComparisons.StructuralEqualityComparer));
         }
@@ -129,7 +129,7 @@ namespace JaggedArrayTests
         [Test, TestCaseSource(nameof(TestDataForMax))]
         public void Sort_Array_Max_Desc_SortedArray(int[][] array, int[][] sorted)
         {
-            Sortings.Sort(array, Sorting.MaxElement, false);
+            Sortings.Sort(array, new MaxDecComparer());
             IStructuralEquatable sq = array;
             Array.Reverse(sorted);
             Assert.True(sq.Equals(sorted, StructuralComparisons.StructuralEqualityComparer));
