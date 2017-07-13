@@ -7,8 +7,13 @@ using JaggedArray;
 
 namespace JaggedArrayTests
 {
-    public class MaxDecComparer:IComparer
+    public class MaxDecComparer : IComparer
     {
-        public int Compare(int[] lhs, int[] rhs) => rhs.Max().CompareTo(lhs.Max());
+        public int Compare(int[] lhs, int[] rhs)
+        {
+            if (ReferenceEquals(lhs, null)) throw new ArgumentNullException($"{nameof(lhs)} is null");
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
+            return rhs.Max().CompareTo(lhs.Max());
+        }
     }
 }

@@ -41,12 +41,6 @@ namespace JaggedArray
         private static void CheckValidArray(int[][] array)
         {
             if (ReferenceEquals(array, null)) throw new ArgumentNullException($"{nameof(array)} is null");
-
-            for (int i = 0; i < array.GetLength(0); i++)
-            {
-                if (ReferenceEquals(array[i], null))
-                    throw new ArgumentNullException($"{nameof(array)}[{i}] is null");
-            }
         }
 
         private static void Swap(ref int[] a, ref int[] b)

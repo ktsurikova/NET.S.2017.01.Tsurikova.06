@@ -9,6 +9,11 @@ namespace JaggedArrayTests
 {
     public class MinInComparer : IComparer
     {
-        public int Compare(int[] lhs, int[] rhs) => lhs.Min().CompareTo(rhs.Min());
+        public int Compare(int[] lhs, int[] rhs)
+        {
+            if (ReferenceEquals(lhs, null)) throw new ArgumentNullException($"{nameof(lhs)} is null");
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
+            return lhs.Min().CompareTo(rhs.Min());
+        }
     }
 }

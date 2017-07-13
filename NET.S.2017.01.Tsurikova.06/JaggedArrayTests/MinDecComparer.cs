@@ -7,8 +7,13 @@ using JaggedArray;
 
 namespace JaggedArrayTests
 {
-    public class MinDecComparer:IComparer
+    public class MinDecComparer : IComparer
     {
-        public int Compare(int[] lhs, int[] rhs) => rhs.Min().CompareTo(lhs.Min());
+        public int Compare(int[] lhs, int[] rhs)
+        {
+            if (ReferenceEquals(lhs, null)) throw new ArgumentNullException($"{nameof(lhs)} is null");
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
+            return rhs.Min().CompareTo(lhs.Min());
+        }
     }
 }

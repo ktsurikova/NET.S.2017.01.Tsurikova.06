@@ -7,8 +7,13 @@ using JaggedArray;
 
 namespace JaggedArrayTests
 {
-    public class SumDecComparer:IComparer
+    public class SumDecComparer : IComparer
     {
-        public int Compare(int[] lhs, int[] rhs) => rhs.Sum().CompareTo(lhs.Sum());
+        public int Compare(int[] lhs, int[] rhs)
+        {
+            if (ReferenceEquals(lhs, null)) throw new ArgumentNullException($"{nameof(lhs)} is null");
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
+            return rhs.Sum().CompareTo(lhs.Sum());
+        }
     }
 }

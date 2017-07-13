@@ -9,6 +9,11 @@ namespace JaggedArrayTests
 {
     public class MaxInComparer : IComparer
     {
-        public int Compare(int[] lhs, int[] rhs) => lhs.Max().CompareTo(rhs.Max());
+        public int Compare(int[] lhs, int[] rhs)
+        {
+            if (ReferenceEquals(lhs, null)) throw new ArgumentNullException($"{nameof(lhs)} is null");
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
+            return lhs.Max().CompareTo(rhs.Max());
+        }
     }
 }
