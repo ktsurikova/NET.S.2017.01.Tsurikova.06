@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IComparer.cs" />
+    <Compile Include="InterfaceProvider.cs" />
     <Compile Include="Sortings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

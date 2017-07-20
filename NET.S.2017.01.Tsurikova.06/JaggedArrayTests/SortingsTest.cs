@@ -37,7 +37,7 @@ namespace JaggedArrayTests
         [Test, TestCaseSource(nameof(TestDataForSum))]
         public void Sort_Array_Sum_Asc_SortedArray(int[][] array, int[][] sorted)
         {
-            Sortings.Sort(array, new SumInComparer());
+            Sortings.Sort(array, (i1, i2)=>i1.Sum()-i2.Sum());
             IStructuralEquatable sq = array;
             Assert.True(sq.Equals(sorted, StructuralComparisons.StructuralEqualityComparer));
         }
